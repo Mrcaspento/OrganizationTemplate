@@ -1,34 +1,72 @@
-import React, { Component } from 'react';
-import FusionCharts from 'fusioncharts';
-import Maps from 'fusioncharts/fusioncharts.maps';
-import World from 'fusioncharts/maps/fusioncharts.world';
-import ReactFC from 'react-fusioncharts';
-import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
-import chartData from '../../Team.json'
+import React, { Component } from "react";
+import Chart from "react-apexcharts";
 
-ReactFC.fcRoot(FusionCharts, Maps, World, FusionTheme);
+export class Members extends Component {
+  constructor(props) {
+    super(props);
 
-const Chart = () => { 
-
-
-const chartConfigs = {
-    type: "column2d", // The chart type
-    width: "700", // Width of the chart
-    height: "400", // Height of the chart
-    dataFormat: "json", // Data type
-    dataSource: {
-      // Chart Configuration
-      chart: {
-        caption: "Countries With Most Oil Reserves [2017-18]",    //Set the chart caption
-        subCaption: "In MMbbl = One Million barrels",             //Set the chart subcaption
-        xAxisName: "Country",           //Set the x-axis name
-        yAxisName: "Reserves (MMbbl)",  //Set the y-axis name
-        numberSuffix: "K",
-        theme: "fusion"                 //Set the theme for your chart
+    this.state = {
+      options: {
+        chart: {
+          id: "orgMembers",
+          type: "bar"
+        },
+        xaxis: {
+          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999]
+        }
       },
-      // Chart Data - from step 2
-      data: chartData
-    }
-  };
+      chart: {
+        animations: {
+            enabled: true,
+            easing: 'easeinout',
+            speed: 800,
+            animateGradually: {
+                enabled: true,
+                delay: 150
+            },
+            dynamicAnimation: {
+                enabled: true,
+                speed: 350
+            }
+        }
+    },
+      OrgMembers: [
+        {
+          name: "Org Members",
+          data: [30, 40, 45, 50, 49, 60, 70, 91]
+        }
+      ]
+    };
+  }
+  updateCharts() {
+    const min = 30;
+    const newBarSeries = [];
+    this.state.seriesBar.forEach((s) => {
+      const data = s.data.map(() => {
+        return Math.floor(Math.random() * (180 - min + 1)) + min;
+      });
+      newBarSeries.push({ data, name: s.name });
+    });
+    this.setState({
+      seriesBar: newBarSeries,
+      seriesRadial: [Math.floor(Math.random() * (90 - 50 + 1)) + 50]
+    });
+  }
+
+  render() {
+    return (
+      <div className="app">
+        <div className="row">
+          <div className="mixed-chart">
+            <Chart
+              options={this.state.options}
+              series={this.state.OrgMembers}
+              type="bar"
+              width="500"
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
-export default Chart;

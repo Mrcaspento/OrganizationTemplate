@@ -25,7 +25,7 @@ export class TeamMembers extends Component{
               width: [4, 0, 0]
             },
             xaxis: {
-              categories: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+              categories: ["Jan", "Feb", "Mar", "Apr", "June", "July", "Aug", "Sept","Oct","Nov","Dec"]
             },
             markers: {
               size: 6,
@@ -46,17 +46,17 @@ export class TeamMembers extends Component{
             {
               name: "Events Volunteered",
               type: "line",
-              data: [30, 40, 25, 50, 49, 21, 70, 51]
+              data: [30, 40, 25, 50, 49, 21, 70, 51, 21, 70, 51]
             },
             {
               name: "Score",
               type: "column",
-              data: [23, 12, 54, 61, 32, 56, 81, 19]
+              data: [23, 12, 54, 61, 32, 56, 81, 19, 23, 31, 42]
             },
             {
               name: "Company Events Attended",
               type: "column",
-              data: [62, 12, 45, 55, 76, 41, 23, 43]
+              data: [62, 12, 45, 55, 76, 41, 23, 43, 10, 5, 12]
             }
           ],
           optionsRadial: {

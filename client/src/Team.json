@@ -1,0 +1,27 @@
+{
+  {
+    "name":"John",
+    "organization": "Bank of America",
+    "role":"admin",
+    "score":{
+        "total": 200,
+        "orgScore": 146
+    },
+    "lvl": 15,
+    "badges": [],
+    "city": "Charlotte"
+    },
+    {
+    "name":"Jane",
+    "organization": "Bank of America",
+    "role":"member"
+    "score":{
+        "total": 160,
+        "orgScore": 96
+    },
+    "lvl": 11,
+    "badges": [],
+    "city": "Charlotte"
+
+    },
+}
